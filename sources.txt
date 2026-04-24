@@ -1,0 +1,10 @@
+D:\LAB211\LAB211_Block5\TaskManagement\src\constants\Message.java
+D:\LAB211\LAB211_Block5\TaskManagement\src\constants\TaskType.java
+D:\LAB211\LAB211_Block5\TaskManagement\src\controller\TaskController.java
+D:\LAB211\LAB211_Block5\TaskManagement\src\dto\TaskRequestDTO.java
+D:\LAB211\LAB211_Block5\TaskManagement\src\dto\TaskResponseDTO.java
+D:\LAB211\LAB211_Block5\TaskManagement\src\main\Main.java
+D:\LAB211\LAB211_Block5\TaskManagement\src\model\Task.java
+D:\LAB211\LAB211_Block5\TaskManagement\src\repository\TaskRepository.java
+D:\LAB211\LAB211_Block5\TaskManagement\src\utils\Validation.java
+D:\LAB211\LAB211_Block5\TaskManagement\src\view\TaskView.java
