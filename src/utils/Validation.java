@@ -6,7 +6,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * Utility class for data validation.
+ * Utility class providing static methods for data validation and parsing.
+ * This class handles common input validations such as strings, integers,
+ * doubles, dates, and domain-specific rules for task management.
  */
 public final class Validation {
 
@@ -17,11 +19,11 @@ public final class Validation {
     }
 
     /**
-     * Validates that the input string is not empty.
+     * Validates that the provided input string is not null or empty after trimming.
      * 
-     * @param input The string to validate
-     * @return The trimmed input string
-     * @throws Exception if input is empty
+     * @param input The raw string input to validate.
+     * @return The trimmed version of the input string if valid.
+     * @throws Exception If the input is null or consists only of whitespace.
      */
     public static String getString(String input) throws Exception {
         if ((input == null) || (input.trim().isEmpty())) {
@@ -31,11 +33,11 @@ public final class Validation {
     }
 
     /**
-     * Validates and parses a positive integer from a string.
+     * Parses a string into a positive integer.
      * 
-     * @param input The string to parse
-     * @return The positive integer value
-     * @throws Exception if input is not a positive integer
+     * @param input The numeric string to parse.
+     * @return The parsed positive integer.
+     * @throws Exception If the input is not a valid integer or is not greater than zero.
      */
     public static int getPositiveInt(String input) throws Exception {
         try {
@@ -50,11 +52,11 @@ public final class Validation {
     }
 
     /**
-     * Validates and parses a positive double with .0 or .5 step.
+     * Parses a string into a positive double and validates that it follows the 0.5 hour step rule.
      * 
-     * @param input The string to parse
-     * @return The validated double value
-     * @throws Exception if input is invalid or doesn't follow the step rule
+     * @param input The numeric string to parse.
+     * @return The validated double value.
+     * @throws Exception If the input is not a valid number, is not positive, or doesn't end in .0 or .5.
      */
     public static double getPositiveDouble(String input) throws Exception {
         try {
@@ -77,11 +79,11 @@ public final class Validation {
     }
 
     /**
-     * Validates that the task type is between 1 and 4.
+     * Validates that the provided task type ID is within the valid range (1-4).
      * 
-     * @param input The string to parse
-     * @return The valid task type ID
-     * @throws Exception if task type is invalid
+     * @param input The task type ID string.
+     * @return The parsed integer ID if valid.
+     * @throws Exception If the ID is not a number or is outside the range [1, 4].
      */
     public static int validateTaskType(String input) throws Exception {
         try {
@@ -99,11 +101,11 @@ public final class Validation {
     }
 
     /**
-     * Validates and parses a date in dd-MM-yyyy format.
+     * Parses and validates a date string against the "dd-MM-yyyy" format.
      * 
-     * @param input The date string
-     * @return The parsed Date object
-     * @throws Exception if date format is invalid
+     * @param input The date string to parse.
+     * @return The parsed Date object.
+     * @throws Exception If the date format is incorrect or the date is invalid.
      */
     public static Date validateDate(String input) throws Exception {
         try {
@@ -116,11 +118,12 @@ public final class Validation {
     }
 
     /**
-     * Validates the planned working time (8.0 - 17.5 and from < to).
+     * Validates the planned working hours constraints.
+     * Rules: Start must be >= 8.0, End must be <= 17.5, and Start < End.
      * 
-     * @param from Start time
-     * @param to End time
-     * @throws Exception if time constraints are violated
+     * @param from The start time.
+     * @param to The end time.
+     * @throws Exception If any of the timing constraints are violated.
      */
     public static void validatePlanTime(double from, double to) throws Exception {
 
@@ -141,13 +144,13 @@ public final class Validation {
     }
 
     /**
-     * Validates a menu choice within a specified range.
+     * Validates a menu selection or any choice within a specific integer range.
      * 
-     * @param input The choice string
-     * @param min Minimum valid value
-     * @param max Maximum valid value
-     * @return The valid choice integer
-     * @throws Exception if choice is out of range
+     * @param input The choice string to parse.
+     * @param min The minimum acceptable value (inclusive).
+     * @param max The maximum acceptable value (inclusive).
+     * @return The parsed integer choice if within range.
+     * @throws Exception If the choice is not a number or is outside the specified range.
      */
     public static int getChoice(String input, int min, int max) throws Exception {
         int choice = getPositiveInt(input);

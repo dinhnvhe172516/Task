@@ -80,6 +80,7 @@ public class Main {
                                 Validation.getString(sc.nextLine()));
 
                         controller.addTask(dto);
+                        System.out.println(Message.SUCCESS_ADD);
                         break;
 
                     case 2:
@@ -87,6 +88,7 @@ public class Main {
                         System.out.print(Message.INPUT_ID);
                         id = Validation.getPositiveInt(sc.nextLine());
                         controller.deleteTask(id);
+                        System.out.println(Message.SUCCESS_DELETE);
                         break;
 
                     case 3:
